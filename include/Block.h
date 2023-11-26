@@ -1,19 +1,21 @@
 #ifndef BLOCK_H
 #define BLOCK_H
 
+#include <glad/glad.h>
 #include <glm/glm.hpp>
 
 class Block {
 public:
-    Block(glm::vec3 position, float size);
+    Block();
+    ~Block();
 
-    void render() const; // Method to render the block
+    void render() const;
 
 private:
-    glm::vec3 position; // Position of the block
-    float size;         // Size of the block
+    unsigned int VBO, VAO, texture;
 
-    // Additional attributes like texture, type, etc., can be added later
+    void setupBlock();
+    void loadTexture(const char* texturePath);
 };
 
 #endif
